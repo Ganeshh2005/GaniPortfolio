@@ -1,0 +1,79 @@
+/* @import rules MUST come first */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+@import "tailwindcss";
+
+/* =============================================
+   SAKURA SUNSET — flows from the animation's
+   warm amber glow into soft pink / cream
+   ============================================= */
+:root {
+  /* Direct palette */
+  --sakura-pink:     #d4788a;
+  --sakura-blush:    #e8a0b0;
+  --sakura-pale:     #f5d5df;
+  --gold-warm:       #e8952a;
+  --gold-soft:       #f5ddb0;
+
+  /* Warm amber-peach — matches the animation's bottom-of-frame glow */
+  --amber-peach:     #f0c898;   /* first section top */
+  --amber-peach-mid: #f5d8b0;
+  --amber-peach-light: #fae8ce;
+
+  /* Rose cream — mid sections */
+  --rose-cream:      #faeae0;
+  --cream-soft:      #fdf3ee;
+  --cream-white:     #fef8f4;
+
+  /* Text */
+  --text-dark:       #2d180e;
+  --text-mid:        #6b3a4a;
+  --text-body:       #7a5040;
+  --text-muted:      #b08070;
+
+  /* Borders / shadows */
+  --border-pink:     rgba(212,120,138,0.22);
+  --border-gold:     rgba(232,149,42,0.30);
+  --shadow-pink:     rgba(212,120,138,0.13);
+  --shadow-warm:     rgba(232,149,42,0.12);
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    /* starts matching the animation's warm glow */
+    background-color: var(--amber-peach);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+/* Global Noise Texture — makes the site feel 'filmic' like the animation */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.04;
+    z-index: 9999;
+    pointer-events: none;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+  ::selection {
+    background: var(--sakura-pink);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
